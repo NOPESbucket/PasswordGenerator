@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" src="stylesheet.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="index.js"></script>
+        <script src="JS/index.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/stylesheet.css">
     </head>
     <body>
-        <p>Hello!</p>
+    
+    <div class="center">
+      <h3 class="text-center">Password Generator</h3>
+      <form class="text-center">
+        <input type="text">
+        <br>
+        <input type="button" id="generate_password" value="Generate Password">
+        <br>
+        <div class="inline-container">
+            <input type="number" min="1" max="50" value="8">
+            <input type="range" min="1" max="50" value="8">
+        </div>
+    </form>
+    </div>
+    
     </body>
 </html>
