@@ -18,7 +18,7 @@ function generate() {
         let charType;
         
         // Re-visit this in future
-        if (this.generateNumbers && this.generateCharactersUpperCase && this.generateCharactersLowerCase && this.generateSymbols) {
+        if (this.generateNumbers && this.generateCharactersUppercase && this.generateCharactersLowercase && this.generateSymbols) {
             if (randomValue == 1) {
                 charType = "numbers";
             } else if (randomValue == 2) {
@@ -28,7 +28,7 @@ function generate() {
             } else {
                 charType = "symbols";
             }
-        } else if (this.generateNumbers && this.generateCharactersUpperCase && this.generateCharactersLowerCase) {
+        } else if (this.generateNumbers && this.generateCharactersUppercase && this.generateCharactersLowercase) {
             if (randomValue == 1) {
                 charType = "numbers";
             } else if (randomValue == 2) {
@@ -36,7 +36,7 @@ function generate() {
             } else {
                 charType = "lowerCaseCharacter";
             }
-        } else if (this.generateNumbers && this.generateCharactersUpperCase && this.generateSymbols) {
+        } else if (this.generateNumbers && this.generateCharactersUppercase && this.generateSymbols) {
             if (randomValue == 1) {
                 charType = "numbers";
             } else if (randomValue == 2) {
@@ -44,7 +44,7 @@ function generate() {
             } else {
                 charType = "symbols";
             }
-        } else if (this.generateNumbers && this.generateCharactersLowerCase && this.generateSymbols) {
+        } else if (this.generateNumbers && this.generateCharactersLowercase && this.generateSymbols) {
             if (randomValue == 1) {
                 charType = "numbers";
             } else if (randomValue == 2) {
@@ -52,7 +52,7 @@ function generate() {
             } else {
                 charType = "symbols";
             }
-        } else if (this.generateCharactersUpperCase && this.generateCharactersLowerCase && this.generateSymbols) {
+        } else if (this.generateCharactersUppercase && this.generateCharactersLowercase && this.generateSymbols) {
             if (randomValue == 1) {
                 charType = "upperCaseCharacter";
             } else if (randomValue == 2) {
@@ -60,23 +60,23 @@ function generate() {
             } else {
                 charType = "symbols";
             }
-        } else if (this.generateNumbers && this.generateCharactersUpperCase) {
+        } else if (this.generateNumbers && this.generateCharactersUppercase) {
             charType = randomValue == 1 ? "numbers" : "upperCaseCharacter";
-        } else if (this.generateNumbers && this.generateCharactersLowerCase) {
+        } else if (this.generateNumbers && this.generateCharactersLowercase) {
             charType = randomValue == 1 ? "numbers" : "lowerCaseCharacter";
         } else if (this.generateNumbers && this.generateSymbols) {
             charType = randomValue == 1 ? "numbers" : "symbols";
-        } else if (this.generateCharactersUpperCase && this.generateCharactersLowerCase) {
+        } else if (this.generateCharactersUppercase && this.generateCharactersLowercase) {
             charType = randomValue == 1 ? "upperCaseCharacter" : "lowerCaseCharacter";
-        } else if (this.generateCharactersUpperCase && this.generateSymbols) {
+        } else if (this.generateCharactersUppercase && this.generateSymbols) {
             charType = randomValue == 1 ? "upperCaseCharacter" : "symbols";
-        } else if (this.generateCharactersLowerCase && this.generateSymbols) {
+        } else if (this.generateCharactersLowercase && this.generateSymbols) {
             charType = randomValue == 1 ? "lowerCaseCharacter" : "symbols";
         } else if (this.generateNumbers) {
             charType = "numbers";
-        } else if (this.generateCharactersUpperCase) {
+        } else if (this.generateCharactersUppercase) {
             charType = "upperCaseCharacter";
-        } else if (this.generateCharactersLowerCase) {
+        } else if (this.generateCharactersLowercase) {
             charType = "lowerCaseCharacter";
         } else if (this.generateSymbols) {
             charType = "symbols";
@@ -108,21 +108,85 @@ class PasswordGenerator {
     {
         this.characters = 8;
         this.generateNumbers = true;
-        this.generateCharactersLowerCase = true;
-        this.generateCharactersUpperCase = true;
+        this.generateCharactersLowercase = true;
+        this.generateCharactersUppercase = true;
         this.generateSymbols = true;
         this.Generate = generate.bind(this);
     }
 }
 
 const pswdGenerator = new PasswordGenerator();
-pswdGenerator.characters = 8;
-alert(pswdGenerator.Generate());
+const checkboxes = ["#option_gen_numbers", "#option_gen_symbols", "#option_gen_lowercase", "#option_gen_uppercase"];
+let checked = 4;
 
-$(document).ready(function()
+function generatePassword(length)
 {
-    $("#generate_password").click(function()
+    if(length != null) 
     {
-        $("#generate_password").hide();
+        pswdGenerator.characters = length;
+    }
+    let pswd = pswdGenerator.Generate();
+    $("#output_password").val(pswd);
+}
+
+function changeChecked(checkboxID)
+{
+    let unchecked = 0;
+    for(let i=0; i < 4; i++)
+    {
+        if(!$(checkboxes[i]).prop('checked'))
+        {
+            unchecked++;
+        }
+    }
+    if(unchecked == 4)
+    {
+        // $(checkboxID).attr("disabled", true);
+        $(checkboxID).prop('checked', true);
+    }
+}
+
+$(document).ready(function() {
+    generatePassword(8);
+
+    $("#generate_password").click(function() 
+    {
+        pswd = pswdGenerator.Generate();
+        $("#output_password").val(pswd);
+    });
+
+    $("#number_character").change(function() 
+    {
+        generatePassword($("#number_character").val());
+        $("#range_character").val($("#number_character").val());
+    });
+    $("#range_character").change(function() 
+    {
+        generatePassword($("#range_character").val());
+        $("#number_character").val($("#range_character").val());
+    });
+    $("#option_gen_numbers").change(function() 
+    {
+        changeChecked("#option_gen_numbers");
+        pswdGenerator.generateNumbers = $("#option_gen_numbers").prop('checked');
+        generatePassword();
     })
-})
+    $("#option_gen_symbols").change(function() 
+    {
+        changeChecked("#option_gen_symbols");
+        pswdGenerator.generateSymbols = $("#option_gen_symbols").prop('checked');
+        generatePassword();
+    })
+    $("#option_gen_lowercase").change(function() 
+    {
+        changeChecked("#option_gen_lowercase");
+        pswdGenerator.generateCharactersLowercase = $("#option_gen_lowercase").prop('checked');
+        generatePassword();
+    })
+    $("#option_gen_uppercase").change(function() 
+    {
+        changeChecked("#option_gen_uppercase");
+        pswdGenerator.generateCharactersUppercase = $("#option_gen_uppercase").prop('checked');
+        generatePassword();
+    })
+});

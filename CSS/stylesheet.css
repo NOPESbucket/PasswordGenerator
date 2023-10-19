@@ -8,6 +8,11 @@
   text-align: center;
 }
 
-.inline-container {
+.horizontal-container {
   display: inline;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
 }

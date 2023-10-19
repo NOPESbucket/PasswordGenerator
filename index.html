@@ -9,18 +9,35 @@
     <body>
     
     <div class="center">
-      <h3 class="text-center">Password Generator</h3>
-      <form class="text-center">
-        <input type="text">
+        <h3 class="text-center">Password Generator</h3>
+        <form class="text-center">
+            <input type="text" id="output_password">
+            <br>
+            <input type="button" id="generate_password" value="Generate Password">
+        </form>
         <br>
-        <input type="button" id="generate_password" value="Generate Password">
-        <br>
-        <div class="inline-container">
-            <input type="number" min="1" max="50" value="8">
-            <input type="range" min="1" max="50" value="8">
+        <div>
+            <form class="text-center">
+                <input type="checkbox" id="option_gen_lowercase" value="Lowercase" checked>
+                <label for="option_gen_lowercase">Lowercase</label>
+                <br>
+                <input type="checkbox" id="option_gen_uppercase" value="Uppercase" checked>
+                <label for="option_gen_uppercase">Uppercase</label>
+                <br>
+                <input type="checkbox" id="option_gen_numbers" value="Numbers" checked>
+                <label for="option_gen_numbers">Numbers</label>
+                <br>
+                <input type="checkbox" id="option_gen_symbols" value="Symbols" checked>
+                <label for="option_gen_symbols">Symbols</label>
+                <br>
+            </form>
         </div>
-    </form>
+        <form class="text-center">
+            <div class="horizontal-container">
+                <input type="number" id="number_character" min="1" max="50" value="8">
+                <input type="range" id="range_character" min="1" max="50" value="8">
+            </div>
+        </form>
     </div>
-    
     </body>
 </html>
