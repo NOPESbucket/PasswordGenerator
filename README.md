@@ -1,3 +1,4 @@
 # PasswordGenerator
 
-This is a simple web-page used for password generation.
+Šī ir vienkārša tīmekļa lapa (instruments), ko izmanto paroles 
+ģenerēšanai ar dažādiem iestatījumiem, ko lietotājs var izvēlēties.
