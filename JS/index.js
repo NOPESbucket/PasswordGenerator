@@ -149,6 +149,14 @@ function changeChecked(checkboxID)
 $(document).ready(function() {
     generatePassword(8);
 
+    // Prevent a form submision
+    $("input[type='number']").on('keydown', function (e) {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
     $("#generate_password").click(function() 
     {
         pswd = pswdGenerator.Generate();
@@ -157,6 +165,11 @@ $(document).ready(function() {
 
     $("#number_character").change(function() 
     {
+        if($("#number_character").val() > 50)
+        {
+            pswdGenerator.characters = 50;
+            $("#number_character").val(50);
+        }
         generatePassword($("#number_character").val());
         $("#range_character").val($("#number_character").val());
     });
