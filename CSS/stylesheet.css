@@ -1,18 +1,94 @@
-.center {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
+@font-face {
+  font-family: WorkSans;
+  src: url(../Fonts/WorkSans-VariableFont_wght.ttf);
 }
 
-.text-center {
-  text-align: center;
+h3 {
+  font-size: 250%;
+  font-weight: 700;
+  font-family: WorkSans;
+}
+
+body {
+  background-color: #FBFEFB;
+}
+
+input {
+  font-weight: 500;
+  font-family: WorkSans;
+}
+
+label {
+  margin: 2px;
+  font-weight: 500;
+  font-family: WorkSans;
+  font-size: larger;
+}
+
+.num-box {
+  width: 50px;
+}
+
+.slider {
+
+}
+
+.slider::-webkit-slider-thumb {
+  background-color: #0084ff;
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+
+.slider::-webkit-slider-runnable-track {
+  background-color: #FBFEFB;
+  height: 15px;
+}
+
+#output_password {
+  width: 75%;
+  height: 50px; 
+  margin: 20px;
+  font-weight: 500;
+  font-family: WorkSans;
+}
+
+#generate_password {
+  width: 25%;
+  margin: 10px;
+  font-weight: 500;
+  font-family: WorkSans;
+}
+
+.output-box {
+  width: 60%;
+  height: 200px;
+  margin: auto;
+}
+
+.flex-stretch-container {
+  display: flex;
+  align-items: stretch;
 }
 
 .horizontal-container {
-  display: inline;
+  display: flex;
+  align-items: center;
 }
 
 .vertical-container {
   display: flex;
   flex-direction: column;
+}
+
+.card-box {
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: #EFE5DC;
+  background-color: #f8ebe2;
+
+  box-shadow: 0px 0px 12px #F3D8C7;
+
+  margin-top: 25px;
 }

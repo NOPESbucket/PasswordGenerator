@@ -7,37 +7,46 @@
         <link rel="stylesheet" href="CSS/stylesheet.css">
     </head>
     <body>
-    
-    <div class="center">
-        <h3 class="text-center">Password Generator</h3>
-        <form class="text-center">
-            <input type="text" id="output_password">
-            <br>
-            <input type="button" id="generate_password" value="Generate Password">
-        </form>
-        <br>
-        <div>
-            <form class="text-center">
-                <input type="checkbox" id="option_gen_lowercase" value="Lowercase" checked>
-                <label for="option_gen_lowercase">Lowercase</label>
+        <div class="output-box card-box">
+            <div class="text-center">
+                <h3>Password Generator</h3>
+            </div>
+            <hr style="margin-left: 12px; margin-right: 12px;">
+            <form class="flex-stretch-container">
+                <input type="text" id="output_password" class="form-control">
                 <br>
-                <input type="checkbox" id="option_gen_uppercase" value="Uppercase" checked>
-                <label for="option_gen_uppercase">Uppercase</label>
-                <br>
-                <input type="checkbox" id="option_gen_numbers" value="Numbers" checked>
-                <label for="option_gen_numbers">Numbers</label>
-                <br>
-                <input type="checkbox" id="option_gen_symbols" value="Symbols" checked>
-                <label for="option_gen_symbols">Symbols</label>
-                <br>
+                <input type="button" id="generate_password" value="Generate Password" class="form-control">
             </form>
         </div>
-        <form class="text-center">
-            <div class="horizontal-container">
-                <input type="number" id="number_character" min="1" max="50" value="8">
-                <input type="range" id="range_character" min="1" max="50" value="8">
+        <form class="container w-50 card-box">
+            <div class="text-center">
+                <h3>Generation Options</h3>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col horizontal-container">
+                    <input type="number" id="number_character" min="1" max="50" value="8" class="form-control w-25 num-box">
+                    <input type="range" id="range_character" min="1" max="50" value="8" class="form-range slider">
+                </div>
+                <div class="col vertical-container">
+                    <div class="horizontal-container">
+                        <input type="checkbox" id="option_gen_lowercase" value="Lowercase" class="form-check-input" checked>
+                        <label for="option_gen_lowercase" class="form-check-label" style="margin-left: 10px;">Lowercase</label>
+                    </div>
+                    <div class="horizontal-container">
+                        <input type="checkbox" id="option_gen_uppercase" value="Uppercase" class="form-check-input" checked>
+                        <label for="option_gen_uppercase" class="form-check-label" style="margin-left: 10px;">Uppercase</label>
+                    </div>
+                    <div class="horizontal-container">
+                        <input type="checkbox" id="option_gen_numbers" value="Numbers" class="form-check-input" checked>
+                        <label for="option_gen_numbers" class="form-check-label" style="margin-left: 10px;">Numbers</label>
+                    </div>
+                    <div class="horizontal-container">
+                        <input type="checkbox" id="option_gen_symbols" value="Symbols" class="form-check-input" checked>
+                        <label for="option_gen_symbols" class="form-check-label" style="margin-left: 10px;">Symbols</label>
+                    </div>
+                </div>
             </div>
         </form>
-    </div>
     </body>
 </html>
