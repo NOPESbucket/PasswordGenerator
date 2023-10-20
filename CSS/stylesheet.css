@@ -19,7 +19,7 @@ input {
 }
 
 label {
-  margin: 2px;
+  margin: 1px;
   font-weight: 500;
   font-family: WorkSans;
   font-size: larger;
@@ -41,7 +41,7 @@ label {
 }
 
 .slider::-webkit-slider-runnable-track {
-  background-color: #FBFEFB;
+  background-color: #daf2f7;
   height: 15px;
 }
 
@@ -86,7 +86,7 @@ label {
   border-width: 5px;
   border-radius: 5px;
   border-color: #EFE5DC;
-  background-color: #f8ebe2;
+  background-color: rgb(236, 211, 193);
 
   box-shadow: 0px 0px 12px #F3D8C7;
 

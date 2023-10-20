@@ -17,7 +17,7 @@ function generate() {
         let randomValue = getRndInteger(1, 4);
         let charType;
         
-        // Re-visit this in future
+        // Re-visit this code in future
         if (this.generateNumbers && this.generateCharactersUppercase && this.generateCharactersLowercase && this.generateSymbols) {
             if (randomValue == 1) {
                 charType = "numbers";
